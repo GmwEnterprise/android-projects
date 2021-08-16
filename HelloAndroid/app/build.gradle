@@ -1,0 +1,66 @@
+plugins {
+    // 应用了这个插件，表示该模块是应用程序模块
+    id 'com.android.application'
+    // Kotlin必需插件
+    id 'kotlin-android'
+}
+
+android {
+    // 指定项目编译版本
+    compileSdk 31
+
+    defaultConfig {
+        // 应用唯一标识符
+        applicationId "com.example.helloandroid"
+        // 兼容的最小android版本
+        minSdk 21
+        // 在该版本上做过了充分测试，将启用此版本最新的特性
+        targetSdk 31
+
+        versionCode 1
+        versionName "1.0"
+
+        // 启用Junit测试
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // 指定生成安装文件的相关配置
+    buildTypes {
+        release {
+            // 是否混淆代码
+            minifyEnabled false
+            // 混淆规则
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        // 可能会有另外一个debug闭包，这里只有release闭包
+    }
+
+    // 编译选项
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // kotlin选项
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+// 依赖
+dependencies {
+
+    // 相当于maven compile依赖
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    // 单元测试依赖
+    testImplementation 'junit:junit:4.13.2'
+
+    // 集成测试依赖
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
