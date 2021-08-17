@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.activitytest">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ActivityTest">
+
+        <activity
+            android:name=".FirstActivity"
+            android:exported="true"
+            android:label="This is First Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true">
+            <intent-filter>
+                <!--action与category匹配即可使用隐式Intent-->
+                <!--自定义的action-->
+                <action android:name="com.example.activitytest.ACTION_START" />
+                <!--默认category-->
+                <action android:name="" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

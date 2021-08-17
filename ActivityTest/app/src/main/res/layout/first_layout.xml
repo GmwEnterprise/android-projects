@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--android:id = 唯一元素标识符，@+id/idName表示定义一个标识符-->
+    <!--android:layout_width = 元素宽度，match_parent表示与父元素一样宽-->
+    <!--android:layout_height = 元素高度，wrap_content表示刚好容纳内容即可-->
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn1" />
+
+</LinearLayout>
