@@ -1,6 +1,7 @@
 package com.example.activitytest
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -22,7 +23,7 @@ class FirstActivity : AppCompatActivity() {
 
         // 定义点击事件
         button1.setOnClickListener {
-            val content = "你点击了一个按钮"
+            val content = "进入第二个Activity"
 
             // 创建一个toast
             val textToast = Toast.makeText(this, content, Toast.LENGTH_SHORT)
@@ -38,8 +39,17 @@ class FirstActivity : AppCompatActivity() {
             // startActivity(intent)
 
             // 隐式使用Intent 启动SecondActivity
-            val intent = Intent("com.example.activitytest.ACTION_START")
-            startActivity(intent)
+            // 不使用默认category(android.intent.category.DEFAULT)
+            // val intent = Intent("com.example.activitytest.ACTION_START")
+            // intent.addCategory("com.example.activitytest.MY_CATEGORY")
+
+            // 隐式Intent的好处是可以启动别的应用的activity
+            // startActivity(intent)
+
+            // 此隐式Intent可以启动浏览器
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse("https://www.baidu.com")
+            startActivity(browserIntent)
         }
     }
 

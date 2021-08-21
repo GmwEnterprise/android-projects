@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.activitytest">
 
     <application
@@ -9,13 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivityTest">
-
         <activity
             android:name=".FirstActivity"
             android:exported="true"
             android:label="This is First Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,11 +25,28 @@
             android:name=".SecondActivity"
             android:exported="true">
             <intent-filter>
-                <!--action与category匹配即可使用隐式Intent-->
-                <!--自定义的action-->
+
+                <!-- action与category匹配即可使用隐式Intent -->
+                <!-- 自定义的action -->
                 <action android:name="com.example.activitytest.ACTION_START" />
-                <!--默认category-->
-                <action android:name="" />
+                <!--
+                自定义category，同时要求必须定义这个默认的category，不然在启动该activity的时候
+                程序会崩溃，找不到该activity
+                -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.activitytest.MY_CATEGORY" />
+            </intent-filter>
+        </activity>
+
+        <!--使第三个Activity能够响应action:VIEW-->
+        <!--如此，在FirstActivity中点击按钮就可以选择使用webview访问或者这个activity访问了-->
+        <activity
+            android:name=".ThirdActivity"
+            android:exported="true">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="https" />
             </intent-filter>
         </activity>
     </application>

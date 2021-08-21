@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">ActivityTest</string>
-    <string name="btn1">Button 1</string>
     <string name="addItem">Add</string>
     <string name="removeItem">Remove</string>
+    <string name="btn1">Button 1</string>
     <string name="btn2">Button 2</string>
+    <string name="btn3">Button 3</string>
 </resources>
